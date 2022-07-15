@@ -34,29 +34,56 @@ module.exports = () => {
         description: "Takes notes with JavaScript syntax highlighting!",
         start_url: "/",
         publicPath: "/",
+        icons: [
+          {
+            src: path.resolve('./src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          }
+        ],
       }),
+      
     ],
 
     module: {
       rules: [
         {
           test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-env"],
-              plugins: [
-                "@babel/plugin-proposal-object-rest-spread",
-                "@babel/transform-runtime",
-              ],
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
           },
         },
+        // {
+        //   test: /\.css$/i,
+        //   use: ["style-loader", "css-loader"],
+        // },
+        // {
+        //   test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        //   type: 'asset/resource',
+        // },
+        // {
+        //   test: /\.m?js$/,
+        //   exclude: /node_modules/,
+        //   use: {
+        //     loader: "babel-loader",
+        //     options: {
+        //       presets: ["@babel/preset-env"],
+        //       plugins: [
+        //         "@babel/plugin-proposal-object-rest-spread",
+        //         "@babel/transform-runtime",
+        //       ],
+        //     },
+        //   },
+        // },
       ],
     },
   };
