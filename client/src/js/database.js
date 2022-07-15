@@ -20,7 +20,7 @@ export const putDb = async (id, content) => {
   const store = txt.objectStore('data');
   const request = store.put({ id: id, value: content});
   const result = await request;
-  console.log('🚀 - data has been updated', result.value);
+  console.log('🚀 - data has been updated', result);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
